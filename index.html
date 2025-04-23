@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dagiphysio - Patient assessment and demographics" />
+  <title>Dagiphysio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      background: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+    }
+    .search-box {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      font-size: 16px;
+    }
+    .patient {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .patient h2 {
+      margin-top: 0;
+    }
+    .field {
+      margin-bottom: 5px;
+    }
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dagiphysio Patient Records</h1>
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="filterPatients()" placeholder="Search for patients...">
+  </div>  <div id="patients">
+    <!-- Sample Patient -->
+    <div class="patient">
+      <h2>John Doe</h2>
+      <div class="field"><span class="label">Age:</span> 35</div>
+      <div class="field"><span class="label">Gender:</span> Male</div>
+      <div class="field"><span class="label">Referral diagnosis:</span> Shoulder Impingement</div>
+      <div class="field"><span class="label">Chief complain:</span> Shoulder pain</div>
+      <div class="field"><span class="label">HPI:</span> Pain started 2 months ago after lifting weights</div>
+      <div class="field"><span class="label">PMH:</span> None</div>
+      <div class="field"><span class="label">Patient expectation:</span> Return to gym</div>
+      <div class="field"><span class="label">Observation:</span> Guarded movement of right arm</div>
+      <div class="field"><span class="label">Palpation:</span> Tenderness at supraspinatus</div>
+      <div class="field"><span class="label">Assessment:</span> Limited abduction ROM</div>
+      <div class="field"><span class="label">Treatment plan:</span> Physiotherapy x3/week</div>
+      <div class="field"><span class="label">Progress note:</span> Improved ROM after 2 sessions</div>
+    </div>
+    <!-- Repeat similar blocks for more patients -->
+  </div>  <script>
+    function filterPatients() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const patients = document.querySelectorAll(".patient");
+
+      patients.forEach(patient => {
+        const text = patient.textContent.toLowerCase();
+        patient.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+  </script></body>
+</html>
